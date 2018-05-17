@@ -35,6 +35,14 @@ source 'https://rubygems.org'
  # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
  gem 'jbuilder', '~> 2.5'
 
+ # Uses Bootstrap
+ gem 'bootstrap-sass'
+
+# Uses Bootstrap_Form 
+ gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
+
  gem 'thor', '0.20.0'
 
  group :development do

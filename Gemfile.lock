@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/bootstrap-ruby/bootstrap_form.git
+  revision: 96ce4f73197adfd54651be364b90bf5ce32f1ac9
+  branch: master
+  specs:
+    bootstrap_form (4.0.0.dev)
+      rails (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +47,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    autoprefixer-rails (8.5.0)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
@@ -146,6 +159,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
+  bootstrap_form!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
