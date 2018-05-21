@@ -1,6 +1,6 @@
 <%= bootstrap_form_for(@contact) do |f| %>
   <%= f.text_field :name %>
-  <%= f.text_area :contact_info %>
-  <%= f.collection_radio_buttons :role %>
+  <%= f.text_field :contact_info %>
+  <%= f.collection_radio_buttons :role, Contact.roles, :first, :first  %>
   <%= f.submit "Add Contact" %>
 <% end %>
