@@ -1,11 +1,11 @@
 <h1>Contacts</h1>
 <div class="row">
-    <div class="col-md-8">
-        <% @contacts.each do |contact| %>
-        <h4> <%= link_to contact.name, contact %> </h4>
-        <%end %>
-        </div>
-        <div class='col-md-4'>
-        <%= link_to "New Contact", new_contact_path, class: 'btn btn-success' %>
-        </div>
-      </div>
+  <div class="col-md-8">
+    <% @contacts.each do |contact| %>
+    <h4> <%= link_to contact.name, contact %> </h4>
+    <%end %>
+  </div>
+  <div class='col-md-4'>
+    <%= link_to "New Contact", new_contact_path, class: 'btn btn-success' %>
+  </div>
+</div>
