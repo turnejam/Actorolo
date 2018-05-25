@@ -51,6 +51,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @events = @contact.events
   end
 
   def contact_params
