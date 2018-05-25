@@ -51,7 +51,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @contacts = @event.contacts
   end
 
   def event_params

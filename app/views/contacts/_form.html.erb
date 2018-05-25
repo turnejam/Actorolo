@@ -2,6 +2,6 @@
   <%= f.text_field :name %>
   <%= f.text_field :contact_info %>
   <%= f.collection_radio_buttons :role, Contact.roles, :first, :first  %>
-  <%= f.collection_check_boxes :event_ids, Event.all, :id, :title %>
+  <%= f.collection_check_boxes :event_ids, Event.all, :id, :title, label: "Tag Events" %>
   <%= f.submit "Save Contact" %>
 <% end %>

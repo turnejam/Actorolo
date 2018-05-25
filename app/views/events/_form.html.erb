@@ -3,6 +3,6 @@
   <%= f.text_area :notes %>
   <%= f.datetime_field :date %>
   <%= f.collection_radio_buttons :category, Event.categories, :first, :first  %>
-  <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %>
+  <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name, label: "Tag Contacts" %>
   <%= f.submit "Save Event" %>
 <% end %>
