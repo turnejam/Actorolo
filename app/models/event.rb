@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
-  belongs_to :contact
-  has_many :contacts, through: :user
+  has_many :contacts_events
+  has_many :contacts, :through => :contacts_events
 
   enum category: [:audition, :callback, :class, :other]
 end

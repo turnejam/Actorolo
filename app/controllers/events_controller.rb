@@ -51,9 +51,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @contacts = @event.contacts
   end
 
   def event_params
-    params.require(:event).permit(:title, :notes, :date, :category, :contact, :contact_id, :user, :user_ids)
+    params.require(:event).permit(:title, :notes, :date, :category, :user, :user_ids, contact_ids:[])
   end
 end
