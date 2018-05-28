@@ -10,9 +10,9 @@
 </div>
 <div class='row>'>
   <div class='col-md-8'>
-  <ul>Associated Contacts</ul>
-  <% @event.contacts.each do |contact| %>
-  <li><%= link_to "#{contact.name}: #{contact.role}", contact %></li>
-  <% end %>
-</div>
+    <h3> Associated Contacts </h3>
+        <% @event.contacts.each do |contact| %>
+        <%= link_to "#{contact.name}: #{contact.role}", contact %>
+        <% end %>
+  </div>
 </div>
