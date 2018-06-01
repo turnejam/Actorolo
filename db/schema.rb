@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20180525211933) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contact_projects", id: false, force: :cascade do |t|
-    t.integer "contact_id"
-    t.integer "project_id"
+    t.bigint "contact_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contact_id"], name: "index_contact_projects_on_contact_id"
@@ -25,22 +28,22 @@ ActiveRecord::Schema.define(version: 20180525211933) do
     t.string "name", null: false
     t.text "contact_info"
     t.integer "role", default: 0
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "contacts_events", id: false, force: :cascade do |t|
-    t.integer "contact_id"
-    t.integer "event_id"
+    t.bigint "contact_id"
+    t.bigint "event_id"
     t.index ["contact_id"], name: "index_contacts_events_on_contact_id"
     t.index ["event_id"], name: "index_contacts_events_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "contact_id"
+    t.bigint "user_id"
+    t.bigint "contact_id"
     t.datetime "date"
     t.string "title"
     t.text "notes"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180525211933) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "title"
     t.text "notes"
     t.datetime "date"
@@ -84,4 +87,12 @@ ActiveRecord::Schema.define(version: 20180525211933) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contact_projects", "contacts"
+  add_foreign_key "contact_projects", "projects"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "contacts_events", "contacts"
+  add_foreign_key "contacts_events", "events"
+  add_foreign_key "events", "contacts"
+  add_foreign_key "events", "users"
+  add_foreign_key "projects", "users"
 end

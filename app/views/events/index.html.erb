@@ -3,9 +3,24 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <% @events.each do |event| %>
-    <h4> <%= link_to event.title, event %> </h4>
-    <% end %>
+    <table id="events">
+      <thead>
+      <tr>
+          <th class-'text-center'>Name</td>
+          <th class='text-center'>Category</td>
+          <th class='text-center'>Date</td>
+      </tr>
+    </thead>
+    <tbody>
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= link_to event.title, event %></td>
+    <td><%= event.category %></td>
+    <td><%= event.date %></td>
+  </tr>
+  <% end %>
+  </tbody>
+  </table>
   </div>
   <div class='col-md-4'>
     <%= link_to "New Event", new_event_path, class: 'btn btn-success' %>

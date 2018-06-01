@@ -3,9 +3,24 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <% @projects.each do |project| %>
-    <h4> <%= link_to project.title, project %> </h4>
-    <% end %>
+    <table id="projects">
+      <thead>
+      <tr>
+          <th class-'text-center'>Name</td>
+          <th class='text-center'>Category</td>
+          <th class='text-center'>Date</td>
+      </tr>
+    </thead>
+    <tbody>
+  <% @projects.each do |project| %>
+  <tr>
+    <td><%= link_to project.title, project %></td>
+    <td><%= project.category %></td>
+    <td><%= project.date %></td>
+  </tr>
+  <% end %>
+  </tbody>
+  </table>
   </div>
   <div class='col-md-4'>
     <%= link_to "New Project", new_project_path, class: 'btn btn-success' %>

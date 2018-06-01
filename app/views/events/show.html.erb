@@ -11,8 +11,21 @@
 <div class='row>'>
   <div class='col-md-8'>
     <h3> Associated Contacts </h3>
-        <% @event.contacts.each do |contact| %>
-        <%= link_to "#{contact.name}: #{contact.role}", contact %>
-        <% end %>
+    <table id="contacts">
+      <thead>
+      <tr>
+          <th class-'text-center'>Name</td>
+          <th class='text-center'>Role</td>
+      </tr>
+    </thead>
+    <tbody>
+  <% @event.contacts.each do |contact| %>
+  <tr>
+    <td><%= link_to contact.name, contact %></td>
+    <td><%= contact.role %></td>
+  </tr>
+  <% end %>
+  </tbody>
+  </table>
   </div>
 </div>

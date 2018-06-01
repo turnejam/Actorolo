@@ -11,18 +11,16 @@
 <div class='top-buffer'></div>
 <div class='row>'>
   <div class='col-md-6 col-sm-12'>
-    <table class='table table-bordered'>
+    <h3>Associated Events</h3>
+    <table id="events">
       <thead>
       <tr>
-        <td colspan="3">Associated Events</td>
+          <th class-'text-center'>Name</td>
+          <th class='text-center'>Category</td>
+          <th class='text-center'>Date</td>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th class-'text-center'>Title</td>
-        <th class='text-center'>Category</td>
-        <th class='text-center'>Date</td>
-      </tr>
   <% @contact.events.each do |event| %>
   <tr>
     <td><%= link_to event.title, event %></td>
@@ -30,30 +28,28 @@
     <td><%= event.date %></td>
   </tr>
   <% end %>
-</tbody>
-</table>
+  </tbody>
+  </table>
 </div>
 <div class='col-md-6 col-sm-12'>
-  <table class='table table-bordered'>
+  <h3>Associated Projects</h3>
+  <table id="projects">
     <thead>
     <tr>
-      <td colspan="3">Associated Projects</td>
+        <th class-'text-center'>Name</td>
+        <th class='text-center'>Category</td>
+        <th class='text-center'>Date</td>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th class-'text-center'>Title</td>
-      <th class='text-center'>Category</td>
-      <th class='text-center'>Date</td>
-    </tr>
-  <% @contact.projects.each do |project| %>
-  <tr>
+<% @contact.projects.each do |project| %>
+<tr>
   <td><%= link_to project.title, project %></td>
   <td><%= project.category %></td>
   <td><%= project.date %></td>
-  </tr>
-  <% end %>
-  </tbody>
-  </table>
+</tr>
+<% end %>
+</tbody>
+</table>
 </div>
 </div>
