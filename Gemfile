@@ -47,6 +47,9 @@ gem 'devise'
 # Use Ransack for filtering and pagination
 gem 'jquery-datatables-rails'
 
+# Use Pg_Search for global searching
+gem 'pg_search'
+
  gem 'thor', '0.20.0'
 
  group :development do

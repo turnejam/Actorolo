@@ -7,14 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <script>
-    $(document).ready( function () {
-    $('#contacts').DataTable();
-    $('#projects').DataTable();
-    $('#events').DataTable();
-    } );
-    </script>
   </head>
 
   <body>
@@ -25,7 +17,11 @@
         <li><%= link_to "Events", events_path %></li>
         <li><%= link_to "Projects", projects_path %></li>
       </ul>
-      </div>
+      <%= form_tag search_index_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search Site" %>
+        <%= submit_tag "Go!", :name => nil %>
+      <% end %>
+    </div>
       <% if flash[:notice] %>
   <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>

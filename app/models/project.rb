@@ -1,4 +1,7 @@
 class Project < ApplicationRecord
+  include PgSearch
+  multisearchable :against => [:title, :category]
+
   belongs_to :user
 
   has_many :contact_projects

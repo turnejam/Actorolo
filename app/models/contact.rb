@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+  include PgSearch
+  multisearchable :against => [:name, :role]
+
   belongs_to :user
 
   has_many :contacts_events
