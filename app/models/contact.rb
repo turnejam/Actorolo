@@ -2,6 +2,8 @@ class Contact < ApplicationRecord
   include PgSearch
   multisearchable :against => [:name, :role]
 
+  has_one_attached :image
+
   belongs_to :user
 
   has_many :contacts_events

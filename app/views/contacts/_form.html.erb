@@ -1,6 +1,7 @@
 <%= bootstrap_form_for(@contact) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :contact_info %>
+  <%= f.file_field :image, label: "Attach Headshot (not required)" %>
   <%= f.collection_radio_buttons :role, Contact.roles, :first, :first  %>
   <%= f.collection_check_boxes :event_ids, Event.all, :id, :title, label: "Tag Events" %>
   <%= f.collection_check_boxes :project_ids, Project.all, :id, :title, label: "Tag Projects" %>

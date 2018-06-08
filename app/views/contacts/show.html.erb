@@ -1,6 +1,10 @@
 <h1><%= @contact.name %> <small><%= @contact.role.humanize %></small></h1>
 <div class='row'>
   <div class='col-md-6'>
+    <% if @contact.image.attached? %>
+        <%= image_tag @contact.image, class: 'headshot pull-left' %>
+    <% end %>
+    <h4>Contact Info</h4>
     <p><%= @contact.contact_info %> </p>
   </div>
   <div class='col-md-4'>
