@@ -3,7 +3,26 @@
   <%= f.text_field :contact_info %>
   <%= f.file_field :image, label: "Attach Headshot (not required)" %>
   <%= f.collection_radio_buttons :role, Contact.roles, :first, :first  %>
-  <%= f.collection_check_boxes :event_ids, Event.all, :id, :title, label: "Tag Events" %>
-  <%= f.collection_check_boxes :project_ids, Project.all, :id, :title, label: "Tag Projects" %>
+  <div class='form-group'>
+    <label for='contact_event_ids'>Tag Events</label>
+    <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.all, "id", "title", :selected => Event.where(:id == contact.events)), multiple: true, class: 'form-control multi-select', id: 'contact_event_ids' %>
+  </div>
   <%= f.submit "Save Contact", class: "btn btn-success" %>
 <% end %>
+
+<!--<div class='form-group'>
+  <label for='contact_project_ids'>Tag Projects</label>
+<div class='form-select'>
+  <input class='form-select-input' type='select' value='1' name='contact[project_ids][]' id='contact_projects_ids_1'><label class='form-select-label' for='contact_project_ids_1'>SeaWife</label>
+</div>-->
+
+<!--<div class='form-group'>
+<label for='contact_event_ids'>Tag Events</label>
+<select class= 'form-control' name='contact[event_ids]' id='contact_event_ids'>
+<option value='1'>Sister Aimee</option>
+</select> -->
+<!--    <select name='contact[event_ids]' id='contact_event_ids' class='form-control multi-select' multiple='multiple'>
+    <% Event.all.each do |event| %>
+     <option value='#{event.id}'><%= event.title %> </option>
+    <% end %>
+  </select> -->

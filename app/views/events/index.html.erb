@@ -16,7 +16,7 @@
   <tr>
     <td><%= link_to event.title, event %></td>
     <td><%= event.category %></td>
-    <td><%= event.date %></td>
+    <td><%= event.date.strftime('%e %B, %Y') %></td>
   </tr>
   <% end %>
   </tbody>

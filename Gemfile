@@ -41,6 +41,9 @@ source 'https://rubygems.org'
     git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
     branch: "master"
 
+# Use Bootstrap-multiselect for dropdown menus
+ gem 'bootstrap-multiselect_rails', '~> 0.9.4'
+
 # Use Devise for User sign-up, sign-in
 gem 'devise'
 

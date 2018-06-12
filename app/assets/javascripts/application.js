@@ -15,10 +15,13 @@
 //= require turbolinks
 //= require bootstrap
 //= require dataTables/jquery.dataTables
+//= require bootstrap-multiselect
 //= require_tree .
+
 
 $(document).on('turbolinks:load', function () {
   $('#contacts').DataTable();
   $('#projects').DataTable();
   $('#events').DataTable();
+  $('.multi-select').multiselect();
 });

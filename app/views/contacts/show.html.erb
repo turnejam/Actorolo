@@ -29,7 +29,7 @@
   <tr>
     <td><%= link_to event.title, event %></td>
     <td><%= event.category %></td>
-    <td><%= event.date %></td>
+    <td><%= event.date.strftime('%e %B, %Y') %></td>
   </tr>
   <% end %>
   </tbody>
@@ -50,7 +50,7 @@
 <tr>
   <td><%= link_to project.title, project %></td>
   <td><%= project.category %></td>
-  <td><%= project.date %></td>
+  <td><%= project.date.strftime('%e %B, %Y') %></td>
 </tr>
 <% end %>
 </tbody>

@@ -16,7 +16,7 @@
   <tr>
     <td><%= link_to project.title, project %></td>
     <td><%= project.category %></td>
-    <td><%= project.date %></td>
+    <td><%= project.date.strftime('%e %B, %Y') %></td>
   </tr>
   <% end %>
   </tbody>
