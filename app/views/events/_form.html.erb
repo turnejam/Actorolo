@@ -2,7 +2,10 @@
   <%= f.text_field :title %>
   <%= f.text_area :notes %>
   <%= f.datetime_field :date %>
-  <%= f.collection_radio_buttons :category, Event.categories, :first, :first %>
-  <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name, label: "Tag Contacts" %>
+  <%= f.collection_select :category, Event.categories.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
+  <div class='form-group'>
+    <label for='event_contact_ids'>Tag Contacts</label>
+    <%= select_tag 'event[contact_ids]', options_from_collection_for_select(Contact.all, "id", "name", :selected => @event.contacts.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'event_contact_ids' %>
+  </div>
   <%= f.submit "Save Event", class: "btn btn-success" %>
 <% end %>

@@ -2,10 +2,14 @@
   <%= f.text_field :name %>
   <%= f.text_field :contact_info %>
   <%= f.file_field :image, label: "Attach Headshot (not required)" %>
-  <%= f.collection_radio_buttons :role, Contact.roles, :first, :first  %>
+  <%= f.collection_select :role, Contact.roles.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
   <div class='form-group'>
     <label for='contact_event_ids'>Tag Events</label>
-    <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.all, "id", "title", :selected => Event.where(:id == contact.events)), multiple: true, class: 'form-control multi-select', id: 'contact_event_ids' %>
+    <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.all, "id", "title", :selected => @contact.events.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'contact_event_ids' %>
+  </div>
+  <div class='form-group'>
+    <label for='contact_project_ids'>Tag Projects</label>
+    <%= select_tag 'contact[project_ids]', options_from_collection_for_select(Project.all, "id", "title", :selected => @contact.projects.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'contact_project_ids' %>
   </div>
   <%= f.submit "Save Contact", class: "btn btn-success" %>
 <% end %>
