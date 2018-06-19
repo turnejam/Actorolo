@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_215016) do
+ActiveRecord::Schema.define(version: 2018_06_19_181448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2018_06_18_215016) do
   create_table "events", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "contact_id"
-    t.datetime "date"
+    t.date "date"
     t.string "title"
     t.text "notes"
     t.integer "category"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2018_06_18_215016) do
     t.bigint "user_id"
     t.string "title"
     t.text "notes"
-    t.datetime "date"
+    t.date "date"
     t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

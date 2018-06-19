@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@project) do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :notes %>
-  <%= f.datetime_field :date, ampm: false, hour: false %>
+  <%= f.date_field :date %>
   <%= f.collection_select :category, Project.categories.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
   <div class='form-group'>
     <label for='project_contact_ids'>Tag Contacts</label>
