@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@contact) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_area :contact_info %>
-  <%= f.text_area :notes
+  <%= f.text_area :notes %>
   <%= f.collection_select :role, Contact.roles.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
   <!--<div class='form-group'>
   <label for= 'contact_image' class="btn btn-default btn-file"> Upload Headshot (not required)
