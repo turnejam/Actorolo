@@ -1,11 +1,11 @@
 <%= bootstrap_form_for(@project) do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :notes %>
-  <%= f.datetime_field :date %>
+  <%= f.datetime_field :date, ampm: false, hour: false %>
   <%= f.collection_select :category, Project.categories.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
   <div class='form-group'>
     <label for='project_contact_ids'>Tag Contacts</label>
-    <%= select_tag 'project[contact_ids]', options_from_collection_for_select(Contact.all, "id", "name", :selected => @project.contacts.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'project_contact_ids' %>
+    <%= select_tag 'project[contact_ids]', options_from_collection_for_select(Contact.where(user: current_user ), "id", "name", :selected => @project.contacts.pluck(:id)), multiple: true, class: 'multi-select', id: 'project_contact_ids' %>
   </div>
   <%= f.submit "Save Event", class: 'btn btn-success' %>
 <% end %>

@@ -1,32 +1,20 @@
 <%= bootstrap_form_for(@contact) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :contact_info %>
-  <%= f.file_field :image, label: "Attach Headshot (not required)" %>
   <%= f.collection_select :role, Contact.roles.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
+  <!--<div class='form-group'>
+  <label for= 'contact_image' class="btn btn-default btn-file"> Upload Headshot (not required)
+    <input type="file" class= 'custom-file-input' name='contact[image]' id='contact_image' style='display: none;'>
+  </label>
+</div> -->
+  <%= f.file_field :image, label: "Upload Headshot (not required)" %>
   <div class='form-group'>
+    <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.where(user: current_user), "id", "title", :selected => @contact.events.pluck(:id)), multiple: true, class: 'multi-select', id: 'contact_event_ids' %>
     <label for='contact_event_ids'>Tag Events</label>
-    <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.all, "id", "title", :selected => @contact.events.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'contact_event_ids' %>
   </div>
   <div class='form-group'>
+    <%= select_tag 'contact[project_ids]', options_from_collection_for_select(Project.where(user: current_user), "id", "title", :selected => @contact.projects.pluck(:id)), multiple: true, class: 'multi-select', id: 'contact_project_ids' %>
     <label for='contact_project_ids'>Tag Projects</label>
-    <%= select_tag 'contact[project_ids]', options_from_collection_for_select(Project.all, "id", "title", :selected => @contact.projects.pluck(:id)), multiple: true, data: {size: 5}, class: 'multi-select dropup', id: 'contact_project_ids' %>
   </div>
   <%= f.submit "Save Contact", class: "btn btn-success" %>
 <% end %>
-
-<!--<div class='form-group'>
-  <label for='contact_project_ids'>Tag Projects</label>
-<div class='form-select'>
-  <input class='form-select-input' type='select' value='1' name='contact[project_ids][]' id='contact_projects_ids_1'><label class='form-select-label' for='contact_project_ids_1'>SeaWife</label>
-</div>-->
-
-<!--<div class='form-group'>
-<label for='contact_event_ids'>Tag Events</label>
-<select class= 'form-control' name='contact[event_ids]' id='contact_event_ids'>
-<option value='1'>Sister Aimee</option>
-</select> -->
-<!--    <select name='contact[event_ids]' id='contact_event_ids' class='form-control multi-select' multiple='multiple'>
-    <% Event.all.each do |event| %>
-     <option value='#{event.id}'><%= event.title %> </option>
-    <% end %>
-  </select> -->

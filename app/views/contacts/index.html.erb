@@ -1,28 +1,24 @@
 <div class='page-header'>
-<h1>Contacts</h1>
+  <h1>Contacts</h1>
+    <%= link_to "New Contact", new_contact_path, class: 'btn btn-success' %>
 </div>
 <div class="row">
   <div class='col-md-8 col-sm-6'>
-  <table id="contacts">
+  <table class="data-table">
     <thead>
     <tr>
-      <tr>
         <th class-'text-center'>Name</td>
         <th class='text-center'>Role</td>
-      </tr>
     </tr>
   </thead>
   <tbody>
 <% @contacts.each do |contact| %>
 <tr>
   <td><%= link_to contact.name, contact %></td>
-  <td><%= contact.role %></td>
+  <td><%= contact.role.humanize %></td>
 </tr>
 <% end %>
 </tbody>
 </table>
 </div>
-  <div class='col-md-4'>
-    <%= link_to "New Contact", new_contact_path, class: 'btn btn-success' %>
-  </div>
 </div>

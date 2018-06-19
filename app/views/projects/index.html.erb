@@ -1,9 +1,10 @@
 <div class='page-header'>
 <h1>Projects</h1>
+<%= link_to "New Project", new_project_path, class: 'btn btn-success' %>
 </div>
 <div class="row">
   <div class="col-md-8">
-    <table id="projects">
+    <table class="data-table">
       <thead>
       <tr>
           <th class-'text-center'>Name</td>
@@ -15,14 +16,11 @@
   <% @projects.each do |project| %>
   <tr>
     <td><%= link_to project.title, project %></td>
-    <td><%= project.category %></td>
+    <td><%= project.category.humanize %></td>
     <td><%= project.date.strftime('%e %B, %Y') %></td>
   </tr>
   <% end %>
   </tbody>
   </table>
-  </div>
-  <div class='col-md-4'>
-    <%= link_to "New Project", new_project_path, class: 'btn btn-success' %>
   </div>
 </div>

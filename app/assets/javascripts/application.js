@@ -16,12 +16,14 @@
 //= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require bootstrap-multiselect
+//= require activestorage
 //= require_tree .
 
 
 $(document).on('turbolinks:load', function () {
-  $('#contacts').DataTable();
-  $('#projects').DataTable();
-  $('#events').DataTable();
-  $('.multi-select').multiselect();
+  $('.data-table').DataTable();
+  $('.multi-select').multiselect({
+    maxHeight: 200,
+    enableCaseInsensitiveFiltering: true
+  });
 });

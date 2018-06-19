@@ -14,18 +14,23 @@
   </head>
 
   <body>
-    <div class="container">
       <ul class="nav nav-tabs">
         <li><%= link_to "About", welcome_about_path %></li>
         <li><%= link_to "Contacts", contacts_path %></li>
         <li><%= link_to "Events", events_path %></li>
         <li><%= link_to "Projects", projects_path %></li>
+        <% if user_signed_in? %>
+        <li class="pull-right"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+        <li class='pull-right'><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        <% else %>
+        <li class='pull-right'><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %></li>
+        <li class='pull-right'><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>
+        <% end %>
+        <%= form_tag search_index_path, class: 'pull-right searchbar', method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder: "Search Site" %>
+          <%= submit_tag 'Go', class: 'btn btn-info btn-xs' %>
+        <% end %>
       </ul>
-      <%= form_tag search_index_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], placeholder: "Search Site" %>
-        <%= submit_tag "Go!", :name => nil %>
-      <% end %>
-    </div>
       <% if flash[:notice] %>
   <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>

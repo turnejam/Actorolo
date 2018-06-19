@@ -1,5 +1,5 @@
 <div class='page-header'>
-<h1><%= @project.title %> <small>(<%=@project.category%>)</small></h1><small><%= @project.date %></small>
+<h1><%= @project.title %> <small>(<%=@project.category%>)</small></h1><small><%= @project.date.strftime('%e %B, %Y') %></small>
 </div>
 <div class='row'>
   <div class='col-md-8'>
@@ -13,7 +13,7 @@
 <div class='row>'>
   <div class='col-md-8'>
   <h3>Associated Contacts</h3>
-  <table id="contacts">
+  <table class="data-table">
     <thead>
     <tr>
         <th class-'text-center'>Name</td>
