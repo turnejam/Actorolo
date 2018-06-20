@@ -47,7 +47,7 @@ source 'https://rubygems.org'
 # Use Devise for User sign-up, sign-in
 gem 'devise'
 
-# Use Ransack for filtering and pagination
+# Use Datatables for filtering and pagination
 gem 'jquery-datatables-rails'
 
 # Use Pg_Search for global searching
