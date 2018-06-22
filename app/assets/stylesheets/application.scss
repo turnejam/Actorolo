@@ -19,9 +19,19 @@
 @import "bootstrap";
 @import 'bootstrap-multiselect';
 
+body {
+  background: #8095b2 !important;
+}
+
 .top-buffer { margin-top:20px; }
 
 .searchbar {
   margin-top: 8px;
   margin-right: 20px
+}
+
+.nav-tabs > li > a {
+  background-color: #8095b2;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

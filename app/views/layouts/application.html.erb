@@ -14,6 +14,8 @@
   </head>
 
   <body>
+    <div class='navbar navbar-primary bg-primary'>
+      <div class='navbar-brand'>Actorolo</div>
       <ul class="nav nav-tabs">
         <li><%= link_to "About", welcome_about_path %></li>
         <li><%= link_to "Contacts", contacts_path %></li>
@@ -42,6 +44,7 @@
     <%= flash[:alert] %>
   </div>
   <% end %>
+    </div>
   <div class='container'>
       <%= yield %>
   </div>
