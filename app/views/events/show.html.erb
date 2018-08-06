@@ -1,5 +1,5 @@
 <div class='page-header'>
-<h1><%= @event.title %> <small>(<%=@event.category%>)</small></h1><small><%= @event.date.strftime('%e %B, %Y') %></small>
+  <h1><%= @event.title %> <small>(<%=@event.category%>)</small></h1><small><%= @event.date.strftime('%e %B, %Y') %></small>
 </div>
 <div class='row'>
   <div class='col-md-6'>
@@ -15,19 +15,19 @@
     <h3> Associated Contacts </h3>
     <table class="data-table">
       <thead>
-      <tr>
-          <th class-'text-center'>Name</td>
-          <th class='text-center'>Role</td>
-      </tr>
-    </thead>
-    <tbody>
-  <% @event.contacts.each do |contact| %>
-  <tr>
-    <td><%= link_to contact.name, contact %></td>
-    <td><%= contact.role %></td>
-  </tr>
-  <% end %>
-  </tbody>
-  </table>
+        <tr>
+          <th class-'text-center'>Name</th>
+          <th class='text-center'>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to contact.name, contact %></td>
+          <td><%= contact.role %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

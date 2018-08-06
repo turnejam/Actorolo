@@ -3,11 +3,6 @@
   <%= f.text_area :contact_info %>
   <%= f.text_area :notes %>
   <%= f.collection_select :role, Contact.roles.map { |a| [a.first.humanize, a.first] }, :last, :first  %>
-  <!--<div class='form-group'>
-  <label for= 'contact_image' class="btn btn-default btn-file"> Upload Headshot (not required)
-    <input type="file" class= 'custom-file-input' name='contact[image]' id='contact_image' style='display: none;'>
-  </label>
-</div> -->
   <%= f.file_field :image, label: "Upload Headshot (not required)" %>
   <div class='form-group'>
     <%= select_tag 'contact[event_ids]', options_from_collection_for_select(Event.where(user: current_user), "id", "title", :selected => @contact.events.pluck(:id)), multiple: true, class: 'multi-select', id: 'contact_event_ids' %>

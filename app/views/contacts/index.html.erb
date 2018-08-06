@@ -6,19 +6,19 @@
   <div class='col-md-8 col-sm-6'>
   <table class="data-table">
     <thead>
-    <tr>
-        <th class-'text-center'>Name</td>
-        <th class='text-center'>Role</td>
-    </tr>
-  </thead>
-  <tbody>
-<% @contacts.each do |contact| %>
-<tr>
-  <td><%= link_to contact.name, contact %></td>
-  <td><%= contact.role.humanize %></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-</div>
+      <tr>
+        <th class-'text-center'>Name</th>
+        <th class='text-center'>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to contact.name, contact %></td>
+          <td><%= contact.role.humanize %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

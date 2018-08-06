@@ -1,5 +1,5 @@
 <div class='page-header'>
-<h1><%= @project.title %> <small>(<%=@project.category%>)</small></h1><small><%= @project.date.strftime('%e %B, %Y') %></small>
+  <h1><%= @project.title %> <small>(<%=@project.category%>)</small></h1><small><%= @project.date.strftime('%e %B, %Y') %></small>
 </div>
 <div class='row'>
   <div class='col-md-8'>
@@ -12,22 +12,22 @@
 </div>
 <div class='row>'>
   <div class='col-md-8'>
-  <h3>Associated Contacts</h3>
-  <table class="data-table">
-    <thead>
-    <tr>
-        <th class-'text-center'>Name</td>
-        <th class='text-center'>Role</td>
-    </tr>
-  </thead>
-  <tbody>
-<% @project.contacts.each do |contact| %>
-<tr>
-  <td><%= link_to contact.name, contact %></td>
-  <td><%= contact.role %></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-</div>
+    <h3>Associated Contacts</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class-'text-center'>Name</th>
+          <th class='text-center'>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to contact.name, contact %></td>
+          <td><%= contact.role %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

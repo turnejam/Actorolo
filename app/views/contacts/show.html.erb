@@ -1,10 +1,10 @@
 <div class='page-header'>
-<h1><%= @contact.name %> <small><%= @contact.role.humanize %></small></h1>
+  <h1><%= @contact.name %> <small><%= @contact.role.humanize %></small></h1>
 </div>
 <div class='row'>
   <div class='col-md-6'>
     <% if @contact.image.attached? %>
-        <%= image_tag @contact.image, class: 'headshot pull-left' %>
+      <%= image_tag @contact.image, class: 'headshot pull-left' %>
     <% end %>
     <h4>Contact Info</h4>
     <div class='well'>
@@ -25,42 +25,42 @@
     <h3>Associated Events</h3>
     <table class="data-table">
       <thead>
-      <tr>
-          <th class-'text-center'>Name</td>
-          <th class='text-center'>Category</td>
-          <th class='text-center'>Date</td>
-      </tr>
-    </thead>
-    <tbody>
-  <% @contact.events.each do |event| %>
-  <tr>
-    <td><%= link_to event.title, event %></td>
-    <td><%= event.category %></td>
-    <td><%= event.date.strftime('%e %B, %Y') %></td>
-  </tr>
-  <% end %>
-  </tbody>
-  </table>
-</div>
-<div class='col-md-6 col-sm-12'>
-  <h3>Associated Projects</h3>
-  <table class="data-table">
-    <thead>
-    <tr>
-        <th class-'text-center'>Name</td>
-        <th class='text-center'>Category</td>
-        <th class='text-center'>Date</td>
-    </tr>
-  </thead>
-  <tbody>
-<% @contact.projects.each do |project| %>
-<tr>
-  <td><%= link_to project.title, project %></td>
-  <td><%= project.category %></td>
-  <td><%= project.date.strftime('%e %B, %Y') %></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-</div>
+        <tr>
+          <th class-'text-center'>Name</th>
+          <th class='text-center'>Category</th>
+          <th class='text-center'>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contact.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event %></td>
+          <td><%= event.category %></td>
+          <td><%= event.date.strftime('%e %B, %Y') %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class='col-md-6 col-sm-12'>
+    <h3>Associated Projects</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class-'text-center'>Name</th>
+          <th class='text-center'>Category</th>
+          <th class='text-center'>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contact.projects.each do |project| %>
+          <tr>
+            <td><%= link_to project.title, project %></td>
+            <td><%= project.category %></td>
+            <td><%= project.date.strftime('%e %B, %Y') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
